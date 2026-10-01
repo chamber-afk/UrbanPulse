@@ -1,0 +1,23 @@
+# Xcode
+DerivedData/
+build/
+xcuserdata/
+*.xcuserstate
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+
+# macOS
+.DS_Store
+
+# Archives
+*.xcarchive
+
+# Secrets
+.env
+
+# Secrets 
+UrbanPulse/Core/Networking/APIConfig.swift
