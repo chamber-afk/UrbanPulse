@@ -19,6 +19,7 @@ class MainTabBarController: UITabBarController {
         let searchNav = makeTab(rootVC: SearchViewController(), title: "Search", imageName: "magnifyingglass")
         let favoritesNav = makeTab(rootVC: FavoritesViewController(), title: "Favorites", imageName: "heart")
         let walletNav = makeTab(rootVC: TicketWalletViewController(), title: "Wallet", imageName: "ticket")
+        
 
         viewControllers = [homeNav, searchNav, favoritesNav, walletNav]
     }

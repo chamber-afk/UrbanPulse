@@ -27,7 +27,7 @@ class DigitalPassCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        accessoryType = .disclosureIndicator   // the ">" chevron, standard "tap for more" affordance
+        accessoryType = .disclosureIndicator
         setupViews()
     }
 

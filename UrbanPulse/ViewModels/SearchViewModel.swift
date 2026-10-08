@@ -18,34 +18,7 @@ final class SearchViewModel {
     }
 
     private var debounceTimer: Timer?
-    private var lastQueryParams: [String: String] = [:]
-
-    var availableCities: [String] { AppState.shared.availableCities }
-    var selectedCity: String { AppState.shared.selectedCity }
-
-    init() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(cityDidChange),
-            name: .cityDidChange,
-            object: nil
-        )
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    @objc private func cityDidChange() {
-        guard !lastQueryParams.isEmpty else { return }
-        Task {
-            await performSearch(queryParams: lastQueryParams)
-        }
-    }
-
-    func selectCity(_ city: String) {
-        AppState.shared.updateCity(city)
-    }
+    private var selectedCity: String { AppState.shared.selectedCity }
 
     func searchTextDidChange(_ text: String) {
         debounceTimer?.invalidate()
@@ -53,7 +26,6 @@ final class SearchViewModel {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else {
             state = .idle
-            lastQueryParams = [:]
             return
         }
 
@@ -72,7 +44,6 @@ final class SearchViewModel {
     }
 
     private func performSearch(queryParams: [String: String]) async {
-        lastQueryParams = queryParams
         state = .loading
 
         var fullParams = queryParams

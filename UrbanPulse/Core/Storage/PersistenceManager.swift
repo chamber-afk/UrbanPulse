@@ -21,7 +21,6 @@ final class PersistenceManager {
         return container
     }()
 
-    // The scratchpad every operation below goes through.
     private var context: NSManagedObjectContext {
         container.viewContext
     }

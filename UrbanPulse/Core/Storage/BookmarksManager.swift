@@ -36,6 +36,6 @@ final class BookmarksManager {
 
     private func save(_ events: [Event]) {
         guard let data = try? JSONEncoder().encode(events) else { return }
-        defaults.set(data, forKey: key)   // the actual WRITE — persists immediately
+        defaults.set(data, forKey: key)  
     }
 }

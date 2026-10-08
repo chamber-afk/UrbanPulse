@@ -119,10 +119,7 @@ class HomeViewController: BaseViewController {
         collectionView.register(EventCardCell.self, forCellWithReuseIdentifier: EventCardCell.reuseIdentifier)
         collectionView.register(TrendingEventCell.self, forCellWithReuseIdentifier: TrendingEventCell.reuseIdentifier)  
         collectionView.register(
-            SectionHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: SectionHeaderView.reuseIdentifier
-        )
+            SectionHeaderView.self,forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,withReuseIdentifier: SectionHeaderView.reuseIdentifier)
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         collectionView.refreshControl = refreshControl
         collectionView.delegate = self
@@ -173,7 +170,7 @@ class HomeViewController: BaseViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
         section.interGroupSpacing = 10
-        section.orthogonalScrollingBehavior = .groupPaging
+        section.orthogonalScrollingBehavior = .groupPaging 
         return section
     }
 

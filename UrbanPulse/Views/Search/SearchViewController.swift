@@ -24,13 +24,6 @@ class SearchViewController: BaseViewController {
     }
     
     private var results: [Event] = []
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let event = results[indexPath.row]
-        let detailVC = EventDetailViewController(event: event)
-        navigationController?.pushViewController(detailVC, animated: true)
-    }
 
     private let emptyStateLabel: UILabel = {
         let label = UILabel()
@@ -80,7 +73,7 @@ class SearchViewController: BaseViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(EventListCell.self, forCellReuseIdentifier: EventListCell.reuseIdentifier)
         tableView.dataSource = self
-        tableView.delegate = self   // ← make sure this line is here
+        tableView.delegate = self
         tableView.rowHeight = 86
 
         view.addSubview(tableView)
@@ -166,5 +159,12 @@ extension SearchViewController: UITableViewDataSource,UITableViewDelegate {
         }
         cell.configure(with: results[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let event = results[indexPath.row]
+        let detailVC = EventDetailViewController(event: event)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

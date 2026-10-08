@@ -25,7 +25,7 @@ final class BookingViewModel {
         quantities[category] = current - 1
     }
 
-    var totalPrice: Double {
+    var totalPrice: Double {  
         quantities.reduce(0) { partial, entry in
             partial + (entry.key.basePrice * Double(entry.value))
         }
