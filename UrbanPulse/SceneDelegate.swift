@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = MainTabBarController()
-        self.window = window
+        self.window = window  //self.window is the window property of your SceneDelegate , which we are assigning to newly created window
         window.makeKeyAndVisible()
     }
 

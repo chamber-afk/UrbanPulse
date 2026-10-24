@@ -45,7 +45,7 @@ final class PersistenceManager {
 
     func fetchAllTickets() -> [Ticket] {
         let request = TicketEntity.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "bookingDate", ascending: false)]   // newest first
+        request.sortDescriptors = [NSSortDescriptor(key: "bookingDate", ascending: false)]
 
         do {
             let entities = try context.fetch(request)

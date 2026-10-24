@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct Event: Codable, Identifiable {
+struct Event: Codable {
     let id: String
     let name: String
-    let url: String?
     let images: [EventImage]
     let dates: EventDates
-    let classifications: [Classification]?
     let priceRanges: [PriceRange]?
     let info: String?
     let pleaseNote: String?
@@ -21,7 +19,7 @@ struct Event: Codable, Identifiable {
     let embedded: EventEmbedded?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, url, images, dates, classifications, priceRanges, info, pleaseNote
+        case id, name, images, dates, priceRanges, info, pleaseNote
         case embedded = "_embedded"
     }
 

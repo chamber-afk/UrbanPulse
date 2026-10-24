@@ -168,9 +168,9 @@ class HomeViewController: BaseViewController {
             subitems: [item]
         )
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12) //padding of each section
         section.interGroupSpacing = 10
-        section.orthogonalScrollingBehavior = .groupPaging 
+        section.orthogonalScrollingBehavior = .groupPaging //perpendicular to main contoller scroll direction
         return section
     }
 
@@ -202,7 +202,7 @@ class HomeViewController: BaseViewController {
         section.interGroupSpacing = 14
         section.orthogonalScrollingBehavior = .continuous
 
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
@@ -225,6 +225,14 @@ class HomeViewController: BaseViewController {
         )
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12)
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        section.boundarySupplementaryItems = [header]
         return section
     }
 }
@@ -297,8 +305,15 @@ extension HomeViewController: UICollectionViewDataSource,UICollectionViewDelegat
         }
         
 
-        if Section(rawValue: indexPath.section) == .trending {
-            header.configure(title: "Trending Near You")
+        switch Section(rawValue: indexPath.section) {
+        case .trending:
+            header.configure(title: "Trending")
+
+        case .eventsGrid:
+            header.configure(title: "Events")
+
+        default:
+            break
         }
         return header
     }

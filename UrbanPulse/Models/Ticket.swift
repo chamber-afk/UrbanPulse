@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Ticket: Codable, Identifiable {
+struct Ticket {
     let id: String
     let eventId: String
     let eventName: String

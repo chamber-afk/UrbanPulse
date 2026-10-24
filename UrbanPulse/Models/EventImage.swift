@@ -11,8 +11,6 @@ struct EventImage: Codable{
     let ratio: String?
     let url: String
     let width: Int
-    let height: Int
-    let fallback: Bool
 }
 
 extension Array where Element == EventImage {

@@ -173,12 +173,11 @@ class EventDetailViewController: BaseViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         venueLocationView.translatesAutoresizingMaskIntoConstraints = false
 
-        // Scroll view fills the screen.
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bookNowButton.topAnchor, constant: -8)
+            scrollView.bottomAnchor.constraint(equalTo: bookNowButton.topAnchor,constant: -8)
         ])
         
         NSLayoutConstraint.activate([

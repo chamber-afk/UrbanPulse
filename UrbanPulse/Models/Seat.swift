@@ -7,15 +7,6 @@
 
 import Foundation
 
-struct Seat: Codable, Identifiable {
-    let id: String
-    let row: String
-    let number: Int
-    let category: SeatCategory
-    var isAvailable: Bool
-    var isSelected: Bool = false
-}
-
 enum SeatCategory: String, Codable {
     case standard
     case premium
@@ -32,7 +23,7 @@ enum SeatCategory: String, Codable {
 
 extension SeatCategory {
     var tagValue: Int {
-        switch self {
+        switch self {           
         case .standard: return 0
         case .premium: return 1
         case .vip: return 2

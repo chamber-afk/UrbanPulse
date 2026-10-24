@@ -69,6 +69,7 @@ class BookingViewController: BaseViewController {
 
             confirmButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             confirmButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            confirmButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             confirmButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             confirmButton.heightAnchor.constraint(equalToConstant: 50)
         ])

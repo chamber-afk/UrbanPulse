@@ -9,11 +9,9 @@ import Foundation
 
 struct TicketmasterEventsResponse: Codable {
     let embedded: ResponseEmbedded?
-    let page: PageInfo?
 
     enum CodingKeys: String, CodingKey {
         case embedded = "_embedded"
-        case page
     }
 
     var events: [Event] {
@@ -25,9 +23,3 @@ struct ResponseEmbedded: Codable {
     let events: [Event]?
 }
 
-struct PageInfo: Codable {
-    let size: Int
-    let totalElements: Int
-    let totalPages: Int
-    let number: Int
-}
